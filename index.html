@@ -5,36 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<style>
-    button{
-        color: purple;
-        background: pink;
-        border: none;
-        font-size: 16px;
-        font-family:'Courier New', Courier, monospace;
-    }
-</style>
+<link rel="stylesheet" href="style.css">
 <body>
-    <body>
-
-        <button onclick="klikk()">Button</button>
-        
-        <p id="out">x</p>
-        <img src="" id="bilde" alt="">
-        <script src="script.js"></script>
-        
-        </body>
-        
-         
-
-        
-       
 
 
 
+<h2>
+Valutta Kalkulator
+</h2>
+
+<div class="background">
+    <div class="center">
+        <p id="out"></p>
+    </div>
+    <div class="center">
+        <button onclick="konverter()">konverter</button>
+    </div>
+    <br>
+    <div class="center">
+        <input type="number" id="amount">
+</div>
+
+</div>
+
+<select id="dropdown" onchange="selectOption()">
+<option>USD</option>
+<option>DDK</option>
+</select>
 
 
 
-
+<script src="script.js"></script>
 </body>
 </html>
+
+<!--Planer for Valutakalkulatoren:
+-Style
+-Konvertere fram og tilbake (start med å lage 2 felt,
+men om jeg blir ferdig med det kan jeg prøve å lage en
+liste i steden, slik at brukeren kan velge, og å bruke
+kun et felt i stedet)
+-->

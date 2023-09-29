@@ -1,38 +1,28 @@
+let out = document.getElementById("out")
+let valuttaInn = "DKK"
+let valuttaUt = "NOK"
 
-         
-         let out = ""
-        
-        let ut = document.getElementById("out")
-        
-        let checkmark
-        
-         
-        
-        function klikk(){
-        
-        fetch("https://jsonplaceholder.typicode.com/photos/10")
-        
-        .then(respons => {
-        
-        out += respons.status
-        
+
+function konverter(){
+    fetch ("https://v6.exchangerate-api.com/v6/9908ce7a58dfc49dfa84da97/latest/"+valuttaInn)
+    .then(respons =>{
+        out.textContent = respons.status
         return respons.json()
-        
-        })
-        
-        .then(data => {
-         document.getElementById("bilde").src = data.url
-        
-        })
-        
-         
-        
-        ut.innerHTML = out
-        
-        out = ""
-        
-        }
-        
-         
-        
-        ut.textContent = out
+     })
+    .then(data=>{
+        let amount = parseInt(document.getElementById("amount").value)
+        let text = amount+" "+valuttaInn+" = "
+        let conversion = data.conversion_rates[valuttaUt]
+        text += (conversion*amount) + valuttaUt
+        out.textContent = text
+    })
+
+}
+
+let output = document.getElementById('output');
+function selectionOption(){
+    let dropdown = document.getElementById('dropdown');
+    let selectedIndex = dropdown.selectedIndex;
+    let selectedValue = dropdown.options[selectedIndex].text;
+    output.innerHTML = "the selected value is " + selectedValue;
+}
